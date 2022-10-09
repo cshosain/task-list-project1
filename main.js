@@ -59,8 +59,8 @@ window.addEventListener('load', () => {			//onitializing all selection as soon a
 				task_input_el.style.opacity = '0.6';
 				task_input_el.style.textDecoration='line-through';
 				task_el.style.width = '724px';	//done button pressed element width will be some decressed
-				task_el.style.margin = '0 auto 16px';
-				task_el.style.padding = '0.8rem';
+				task_el.style.margin = '0 auto 16px auto';
+				task_el.style.padding = '0.7rem';
 		});
 
 		task_delete_el.addEventListener('click', (e) => { // performing deletion

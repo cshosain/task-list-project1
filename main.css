@@ -40,6 +40,7 @@ header h1{
 #new-task-form {
 	display: flex;
 	align-items: center;
+	background-color: var(--light);
 }
 
 input, button {
@@ -60,8 +61,6 @@ input, button {
 #new-task-submit {
 	font-size: 1.25rem;
     font-weight: 700;
-	left: 75%;
-    position: absolute;
     cursor: pointer;
     transition: .4s;
 }
