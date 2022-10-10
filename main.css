@@ -138,3 +138,9 @@ main {
 	background-color: var(--pink);
 	padding: 5px;
 }
+.task .actions .edit {
+	background-image: linear-gradient(to right, #fd007d, #4d01fb);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-size: 1.6rem;
+}

@@ -38,6 +38,31 @@ window.addEventListener('load', () => {			//onitializing all selection as soon a
 		task_done_el.classList.add('fa-check'); //applying design of pre-designed class named 'fa-check' for icon
 		task_done_el.innerHTML = '<i></i>';  // addiing icon
 
+		const task_edit_el = document.createElement('button'); // creating edit button
+		task_edit_el.classList.add('edit');
+		// task_edit_el.innerText='edit';
+		task_edit_el.classList.add('fa-solid');
+		task_edit_el.classList.add('fa-pen-to-square');
+		task_edit_el.innerHTML = '<i></i>';
+
+		function makeButtonEdit(){
+			// task_edit_el.classList.remove('fa-regular');
+			// task_edit_el.classList.remove('fa-floppy-disk');
+			task_edit_el.classList.add('fa-solid');
+			task_edit_el.classList.add('fa-pen-to-square');
+			task_edit_el.innerHTML = '<i></i>'; 
+		}
+
+		function saveButoonDesign(){
+			task_edit_el.style.fontSize = '1rem';
+			task_edit_el.style.margin = '0 4px';
+			task_edit_el.style.padding = '2px 1px 0 1px';
+			task_edit_el.style.transition = 'none';
+			task_edit_el.style.border = '1px solid gray';
+			task_edit_el.style.borderRadius = '7px';
+			task_edit_el.style.color = 'linear-gradient(to right, #fd007d, #4d01fb)';
+		}
+
 		const task_delete_el = document.createElement('button'); //creatig a button for delete
 		task_delete_el.classList.add('delete');
 		task_delete_el.classList.add('fa-regular'); //(2)icon class adding
@@ -45,6 +70,7 @@ window.addEventListener('load', () => {			//onitializing all selection as soon a
 		task_delete_el.innerHTML = '<i></i>';
 
 		task_actions_el.appendChild(task_done_el); //storing done tasks
+		task_actions_el.appendChild(task_edit_el);
 		task_actions_el.appendChild(task_delete_el); //storing the tasks that need to delete
 
 		task_el.appendChild(task_actions_el);
@@ -56,11 +82,36 @@ window.addEventListener('load', () => {			//onitializing all selection as soon a
 		task_done_el.addEventListener('click', (e) => {  //making a click event of done button/icon
 				task_done_el.innerHTML = '<i></i>';  // adding icon also after done marked
 				task_done_el.style.opacity = '0.4';
+				task_edit_el.style.opacity = '0.4';
 				task_input_el.style.opacity = '0.6';
 				task_input_el.style.textDecoration='line-through';
 				task_el.style.width = '724px';	//done button pressed element width will be some decressed
 				task_el.style.margin = '0 auto 16px auto';
 				task_el.style.padding = '0.7rem';
+		});
+
+		task_edit_el.addEventListener('click', (e) => {
+			
+			if (task_edit_el.innerText.toLowerCase() != "save" && task_input_el.style.textDecoration !='line-through') { //done element can not be changed
+				// task_edit_el.innerText = "Save";
+				task_edit_el.classList.remove('fa-solid');
+				task_edit_el.classList.remove('fa-pen-to-square');
+				task_edit_el.innerText = "Save";
+				saveButoonDesign();
+				task_input_el.removeAttribute("readonly");
+				task_input_el.focus();
+			} else {
+				if(task_input_el.style.textDecoration !='line-through'){
+				// task_edit_el.innerText = "Edit";
+				makeButtonEdit();
+				task_edit_el.style.fontSize = '1.6rem';
+				task_edit_el.style.border = 'none';
+				task_edit_el.style.margin = '0 13px';
+				task_input_el.setAttribute("readonly", "readonly");
+				}
+				
+			}
+			
 		});
 
 		task_delete_el.addEventListener('click', (e) => { // performing deletion
