@@ -84,9 +84,9 @@ window.addEventListener('load', () => {			//onitializing all selection as soon a
 				task_done_el.style.opacity = '0.4';
 				task_edit_el.style.opacity = '0.4';
 				task_input_el.style.opacity = '0.6';
-				task_input_el.style.textDecoration='line-through';
-				task_el.style.width = '724px';	//done button pressed element width will be some decressed
-				task_el.style.margin = '0 auto 16px auto';
+				task_input_el.style.textDecoration ='line-through';
+				task_el.style.backgroundColor = '#a9eda9';
+				task_el.style.margin = ' 0 2rem 16px 2rem';
 				task_el.style.padding = '0.7rem';
 		});
 
